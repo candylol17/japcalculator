@@ -3,7 +3,7 @@ exports.handler = async function(event, context) {
     const requestBody = JSON.parse(event.body || "{}");
     const message = requestBody.message;
      
-    if(message != "{}" ){
+    if(message){
         return {
             statusCode: 200,
             body: JSON.stringify({ message: message }),
@@ -11,7 +11,7 @@ exports.handler = async function(event, context) {
     }else{
         return {
                 statusCode: 400,
-                body: JSON.stringify({ message: "No messsage" }),
+                body: JSON.stringify({ message: "No messsage, sends me one :)" }),
             };
     }  
     
