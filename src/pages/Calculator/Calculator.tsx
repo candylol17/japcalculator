@@ -12,6 +12,7 @@ import kanjiLeft from "../../assets/kanji/Kanji-left.svg";
 
 import { FOOD_ITEMS, FoodItem } from "../../data/food";
 import { FoodTile } from "../../components";
+import {sendData} from "../../utils/send-data";
 
 type ClassNames =
   | "container"
@@ -19,6 +20,7 @@ type ClassNames =
   | "redCircle"
   | "kanjiSun"
   | "kanjiBook"
+  | "sendData"
   | "calculatorContainer"
   | "calculatorInnerContainer"
   | "scrollContainer"
@@ -76,7 +78,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div className={classes.buttonContainer}>
-            <Button variant="contained">{result} Kcal</Button>
+            <Button variant="contained" onClick={sendData(result)}>{result} Kcal</Button>
           </div>
         </div>
         <div className={classes.lateralBar}>
@@ -136,6 +138,9 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     marginBottom: "auto",
     height: "85%",
     zIndex: 100
+  },
+  sendData:{
+    
   },
   calculatorContainer: {
     position: "absolute",
